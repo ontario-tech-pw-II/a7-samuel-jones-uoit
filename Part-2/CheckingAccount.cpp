@@ -6,7 +6,10 @@ using namespace std;
 // constructor initializes balance and transaction fee
 CheckingAccount::CheckingAccount( double initialBalance, double fee ) : Account( initialBalance ) 
 {
-	transactionFee = fee;
+	if (free >= 0.0)
+		transactionFee = fee;
+	else
+		transactionFee = 0.0;
 } 
 
 // credit (add) an amount to the account balance and charge fee
